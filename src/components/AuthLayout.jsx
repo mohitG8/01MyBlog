@@ -18,6 +18,8 @@ export default function Protected({children, authentication = true}) {
         setLoader(false)
     }, [authStatus, navigate, authentication])
 
-  return loader ? <h1>Loading...</h1> : <>{children}</>
+  return loader ? 
+    <div className='flex justify-center items-center'><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcYMN5Kc1shhaelaKRAWOrIPnhzM6Sybp78g&s" alt="loading...." /></div>
+: <>{children}</>
 }
 
