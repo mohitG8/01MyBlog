@@ -9,7 +9,7 @@ export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
             title: post?.title || "",
-            slug: post?.$id || "",
+            slug: post && post.$id ? post.$id : "",
             content: post?.content || "",
             status: post?.status || "active",
         },
@@ -44,6 +44,7 @@ export default function PostForm({ post }) {
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
+                // console.log(userData.$id)
                 const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
     
                 if (dbPost) {
