@@ -9,7 +9,8 @@ export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
             title: post?.title || "",
-            slug: post && post.$id ? post.$id : "",
+            slug: (post && post.$id) ? post.$id : "",
+
             content: post?.content || "",
             status: post?.status || "active",
         },
@@ -52,7 +53,7 @@ export default function PostForm({ post }) {
                 }
             }
         }
-        setLoading(false)
+        setLoading(false);
     };
     
     const slugTransform = useCallback((value) => {
