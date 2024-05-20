@@ -8,7 +8,7 @@ function AboutUs() {
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-extrabold text-gray-900 mb-4">About Us</h2>
                     <p className="text-xl text-gray-600">
-                        Welcome to Our Blogging Platform! We're dedicated to bringing you the latest news, stories, and insights from around the world.
+                        Welcome to Our Blogging Platform! We're dedicated to bringing you the latest stories, and insights from around the world.
                     </p>
                 </div>
 
