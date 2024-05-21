@@ -86,7 +86,7 @@ export default function PostForm({ post }) {
 
     return (
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-            <div className="w-2/3 px-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                     label="Title :"
                     placeholder="Title"
@@ -104,7 +104,7 @@ export default function PostForm({ post }) {
                 />
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
-            <div className="w-1/3 px-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                     label="Featured Image :"
                     type="file"
@@ -124,10 +124,10 @@ export default function PostForm({ post }) {
                 <Select
                     options={["active", "inactive"]}
                     label="Status"
-                    className="mb-4"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4"
                     {...register("status", { required: true })}
                 />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full md:w-auto bg-blue-500 text-white p-2 rounded-md">
                     {post ? "Update" : "Submit"}
                 </Button>
             </div>

@@ -32,25 +32,22 @@ export default function Post() {
         });
     };
 
-
-
     return post ? (
         <div className="py-4">
             <Container>
-            <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{post.title}</h1>
+                <div className="w-full mb-6">
+                    <h1 className="text-2xl md:text-4xl font-bold">{post.title}</h1>
                 </div>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-4 ">
+                <div className="w-full flex flex-col md:flex-row justify-center md:justify-between mb-4 relative border rounded-xl p-4 ">
                     <img
                         src={appwriteService.getFilePreview(post.featuredImage)}
                         alt={post.title}
-                        className="rounded-xl"
+                        className="w-full md:w-auto rounded-xl mb-4 md:mb-0 md:mr-4"
                     />
-
                     {isAuthor && (
-                        <div className="absolute right-6 top-6">
-                            <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
+                        <div className="flex justify-center md:absolute md:right-6 md:top-6 md:justify-start">
+                            <Link to={`/edit-post/${post.$id}`} className="mr-3">
+                                <Button bgColor="bg-green-500">
                                     Edit
                                 </Button>
                             </Link>
@@ -60,13 +57,14 @@ export default function Post() {
                         </div>
                     )}
                 </div>
-                
                 <div className="browser-css">
                     {parse(post.content)}
-                    </div>
+                </div>
             </Container>
         </div>
     ) : null;
 }
+
+
 
  
