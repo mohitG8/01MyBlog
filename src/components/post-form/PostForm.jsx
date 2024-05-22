@@ -112,25 +112,25 @@ export default function PostForm({ post }) {
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
-                {post && (
-                    <div className="w-full mb-4">
-                        <img
-                            src={appwriteService.getFilePreview(post.featuredImage)}
-                            alt={post.title}
-                            className="rounded-lg"
-                        />
-                    </div>
-                )}
                 <Select
                     options={["active", "inactive"]}
                     label="Status"
-                    className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                    className=" my-6 grid grid-cols-1 md:grid-cols-2 gap-4"
                     {...register("status", { required: true })}
                 />
                 <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full md:w-auto bg-blue-500 text-white p-2 rounded-md">
                     {post ? "Update" : "Submit"}
                 </Button>
             </div>
+            {post && (
+                    <div className="w-full mb-4">
+                        <img
+                            src={appwriteService.getFilePreview(post.featuredImage)}
+                            alt={post.title}
+                            className="my-4 rounded-lg"
+                        />
+                    </div>
+                )}
         </form>
     );
 }
